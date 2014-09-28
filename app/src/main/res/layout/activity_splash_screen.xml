@@ -1,0 +1,33 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="true"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="286dp"
+        android:id="@+id/ivSplash"
+        android:contentDescription="Castillo de Tela"
+        android:scaleType="center"
+        android:background="@drawable/portada"
+        android:layout_weight="0.97"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pb_splash"
+            android:layout_marginTop="10dp"
+            android:indeterminate="false" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ns_fondo"
+            android:src="@drawable/fondo"
+            android:scaleType="center"
+            android:layout_above="@+id/iv_pasto2"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivNube2"
+            android:background="@drawable/nuves_2"
+            android:layout_marginTop="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nsLogo"
+            android:background="@drawable/logo"
+            android:scaleType="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="72dp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivNube1"
+        android:background="@drawable/nuves_1"
+        android:layout_alignTop="@+id/nsLogo"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="150dp"
+        android:id="@+id/ivCerro1"
+        android:background="@drawable/cerro2"
+        android:layout_above="@+id/ivPasto1"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivCerro2"
+        android:adjustViewBounds="false"
+        android:background="@drawable/cerro3"
+        android:layout_alignBottom="@+id/ivCerro3"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/ivCerro3"
+        android:background="@drawable/cerro1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:id="@+id/iv_pasto2"
+        android:background="@drawable/pasto2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/ivPasto1"
+        android:background="@drawable/pasto1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/btInicio"
+            android:background="@drawable/btinicio"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="inicio"
+            android:clickable="true" />
+    </RelativeLayout>
+
+</RelativeLayout>
