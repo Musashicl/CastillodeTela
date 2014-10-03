@@ -5,17 +5,23 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="1">
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/layMenu"
+        android:background="@drawable/top"
+        android:baselineAligned="true"></LinearLayout>
 
-        <ImageView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal">
+
+        <view
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/ivNube3"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.91"
-            android:background="@drawable/menu" />
+            class="com.ctela.ct.castillodetela.view.VerticalPager"
+            android:id="@+id/pgLibros" />
     </LinearLayout>
 </LinearLayout>
