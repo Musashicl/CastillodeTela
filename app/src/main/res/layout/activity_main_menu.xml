@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -10,18 +12,25 @@
         android:layout_height="60dp"
         android:id="@+id/layMenu"
         android:background="@drawable/top"
-        android:baselineAligned="true"></LinearLayout>
+        android:baselineAligned="false"
+        android:layout_alignParentTop="true">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal">
-
-        <view
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            class="com.ctela.ct.castillodetela.view.VerticalPager"
-            android:id="@+id/pgLibros" />
     </LinearLayout>
-</LinearLayout>
+    <ListView
+        android:id="@+id/lvCuentos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layMenu"
+        android:layout_alignStart="@+id/layMenu">
+    </ListView>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:id="@+id/ivBanner"
+        android:background="@drawable/banner_castillo"
+        android:layout_alignTop="@+id/layMenu"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="25dp" />
+
+</RelativeLayout >

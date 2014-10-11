@@ -1,66 +1,56 @@
 package com.ctela.ct.castillodetela;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.ctela.ct.castillodetela.view.VerticalPager;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 /**
- * Created by benja on 24-09-2014.
+ * Created by Seba on 24-09-2014.
  */
 public class menu_principal extends Activity {
 
-    VerticalPager pagerLibros;
+
+    ListView lvCuentos;
+    String[] cuentos= { "La niña mas linda", " El Zorro y los Piñones", "La Pincoya", "The Number 4"};
+    //crear array para identificar nombre de imagenes de cuentos para pantalla de lectura
+    Integer[] imageId = {R.drawable.portadacuento1, R.drawable.portadacuento2, R.drawable.portadacuento3, R.drawable.portadacuento4};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main_menu);
-        pagerLibros = (VerticalPager) findViewById(R.id.pgLibros);
 
-        for (int i = 0; i < 20; i++) {
-            setViewPagerData("Subhanallah " + i);
-        }
-    }
 
-    private void setViewPagerData(final String str) {
-        Log.e("Set Filpper Called", str + "");
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.flipper_item_view, null);
-        TextView textView1 = (TextView) view.findViewById(R.id.textView1);
-        TextView textView2 = (TextView) view.findViewById(R.id.textView2);
-        textView1.setText("" + str);
-        textView2.setText("" + str);
-        Button button = (Button) view.findViewById(R.id.button1);
-        pagerLibros.addView(view);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.splash_screen, menu);
-        return true;
+
+        CustomList adapter = new CustomList(menu_principal.this, cuentos, imageId);
+        lvCuentos=(ListView) findViewById(R.id.lvCuentos);
+        lvCuentos.setAdapter(adapter);
+        lvCuentos.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(menu_principal.this,"You Clicked at "+cuentos[+ position] , Toast.LENGTH_SHORT).show();
+                leerCuento(view);
+            }
+        });
+
     }
 
 
 
 
-
-
-
-
-
-
+    public void leerCuento(View v) {
+        Intent leer= new Intent (this, leer_cuento.class);
+        startActivity(leer);
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
