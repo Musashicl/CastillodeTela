@@ -34,6 +34,7 @@ public class leer_cuento extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
         setContentView(R.layout.leercuento_layout);
 
         imagearray = new ArrayList<Integer>();

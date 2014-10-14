@@ -26,6 +26,7 @@ public class menu_principal extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
         setContentView(R.layout.activity_main_menu);
 
 
@@ -34,6 +35,7 @@ public class menu_principal extends Activity {
         CustomList adapter = new CustomList(menu_principal.this, cuentos, imageId);
         lvCuentos=(ListView) findViewById(R.id.lvCuentos);
         lvCuentos.setAdapter(adapter);
+        lvCuentos.setDivider(null);lvCuentos.setDividerHeight(0);
         lvCuentos.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
