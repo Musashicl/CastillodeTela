@@ -8,26 +8,14 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="286dp"
+        android:layout_height="match_parent"
         android:id="@+id/ivSplash"
-        android:contentDescription="Castillo de Tela"
         android:scaleType="center"
         android:background="@drawable/portada"
         android:layout_weight="0.97"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:contentDescription="@string/splash" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/pb_splash"
-            android:layout_marginTop="10dp"
-            android:indeterminate="false" />
-    </LinearLayout>
 </LinearLayout>

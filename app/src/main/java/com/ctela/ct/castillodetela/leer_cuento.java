@@ -5,13 +5,16 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.view.Window;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
 import java.util.ArrayList;
-
-
+import java.lang.reflect.Field;
+import java.util.List;
 
 
 /**
@@ -22,12 +25,13 @@ public class leer_cuento extends Activity implements View.OnClickListener {
 
     ImageButton btFwd;
     ImageButton btBwd;
+    ImageButton btBck;
     RelativeLayout back;
-    ArrayList<Integer> imagearray;
+    ArrayList<Integer> imagearray = new ArrayList<Integer>();
     Resources res;
-    Drawable drawable;
     int track = 0;
     boolean flag=false;
+    String idCuento;
 
 
     @Override
@@ -37,26 +41,44 @@ public class leer_cuento extends Activity implements View.OnClickListener {
         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
         setContentView(R.layout.leercuento_layout);
 
-        imagearray = new ArrayList<Integer>();
-
         back = (RelativeLayout) findViewById(R.id.back);
+
+        btBck = (ImageButton) findViewById(R.id.bt_Bck);
         btBwd = (ImageButton) findViewById(R.id.bt_Bwd);
         btFwd = (ImageButton) findViewById(R.id.bt_Fwd);
 
         btBwd.setOnClickListener(this);
         btFwd.setOnClickListener(this);
+        btBck.setOnClickListener(this);
+        
+        res = getResources();
+
+
         setup();
 
-        res = getResources();
+
 
     }
 
     private void setup() {
 
-        imagearray.add(R.drawable.cuento1_pag1);
-        imagearray.add(R.drawable.cuento1_pag2);
-        imagearray.add(R.drawable.cuento1_pag3);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            idCuento = extras.getString("idCuento");
 
+        }
+        //Toast.makeText(this, String.valueOf(idCuento), Toast.LENGTH_LONG).show();
+        Field[] fields = R.drawable.class.getFields();
+        int id;
+        for ( Field field : fields) {
+            //corre segun las imagenes que empiesan con el nombre del cuento.
+            if (field.getName().startsWith("cuento"+idCuento+"_pag")) {
+                id = res.getIdentifier(field.getName(), "drawable", getPackageName());
+                imagearray.add(id);
+            }
+        }
+
+        //Toast.makeText(this, String.valueOf( imagearray), Toast.LENGTH_LONG).show();
         if (back.getBackground()== null) back.setBackgroundResource( imagearray.get(0));
 
         if (track == 0 ) {
@@ -67,7 +89,7 @@ public class leer_cuento extends Activity implements View.OnClickListener {
 
     }
 
-    @Override
+    @Override // elije  que hacer cuando se apreta click en la pantalla de lectura de cuentos. segun que se apreta hace algo.. agrega el boton para volver aca " super.finish()
     public void onClick (View v) {
         switch (v.getId()){
             case R.id.bt_Bwd: if(track != 0) track--;
@@ -78,6 +100,10 @@ public class leer_cuento extends Activity implements View.OnClickListener {
             case R.id.bt_Fwd: if (track != imagearray.size()-1) track++;
                 checkview();
                 back.setBackgroundResource(imagearray.get(track));
+            break;
+
+            case R.id.bt_Bck:
+                finish();
             break;
 
         }

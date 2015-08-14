@@ -19,7 +19,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="@null"
-        android:alpha="0.8"/>
+        android:alpha="0.8"
+        android:clickable="false"
+        android:contentDescription="@string/bt_bwd" />
 
     <ImageButton
         android:layout_width="60dp"
@@ -30,6 +32,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:background="@null"
-        android:alpha="0.8" />
+        android:alpha="0.8"
+        android:contentDescription="@string/bt_fwd"
+        android:clickable="false" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/bt_Bck"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false"
+        android:alpha="0.8"
+        android:src="@drawable/bt_bck"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/bt_bck"
+        android:background="@null" />
 
 </RelativeLayout >

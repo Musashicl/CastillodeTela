@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".new_splash"
+            android:name=".SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="landscape">
             <intent-filter>

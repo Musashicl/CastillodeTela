@@ -39,8 +39,8 @@ public class menu_principal extends Activity {
         lvCuentos.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //Toast.makeText(menu_principal.this,"You Clicked at "+cuentos[+ position] , Toast.LENGTH_SHORT).show();
-                leerCuento(view);
+                //Toast.makeText(menu_principal.this,"You Clicked at "+position , Toast.LENGTH_SHORT).show();
+                leerCuento(view, position);
             }
         });
 
@@ -49,8 +49,10 @@ public class menu_principal extends Activity {
 
 
 
-    public void leerCuento(View v) {
+    public void leerCuento(View v, int id) {
         Intent leer= new Intent (this, leer_cuento.class);
+        String cuento = String.valueOf(id+1);
+        leer.putExtra("idCuento" , cuento);
         startActivity(leer);
     }
 

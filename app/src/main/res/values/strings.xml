@@ -6,4 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="splash">splash screen</string>
 
+    <string name="bt_fwd">Avanzar Imagen</string>
+    <string name="bt_bwd">Retroceder Imagen</string>
+    <string name="bt_bck">Volver a listado</string>
 </resources>
